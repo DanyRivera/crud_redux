@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 //Actions de Redux
 import { crearNuevoProductoAction } from '../actions/productoActions';
 
-const NuevoProducto = () => {
+const NuevoProducto = ({history}) => {
 
     //state del componente/local
     const [nombre, setNombre] = useState('');
@@ -12,6 +12,11 @@ const NuevoProducto = () => {
 
     //utilizar useDispatch y te crea/devuelve una función 
     const dispatch = useDispatch();
+
+    //Acceder al state del store
+    const cargando = useSelector( state => state.productos.loading );
+    const error = useSelector( state => state.productos.error );
+    // console.log(error);
 
     //mandar a llamar el action de productoAction
     const agregarProducto = producto => dispatch(crearNuevoProductoAction(producto));
@@ -32,6 +37,9 @@ const NuevoProducto = () => {
             nombre,
             precio
         });
+
+        //Redireccionar a home
+        history.push('/');
     }
 
     return (
@@ -65,7 +73,7 @@ const NuevoProducto = () => {
                                     className="form-control"
                                     placeholder="Precio Producto"
                                     name="precio"
-                                    value={precio}
+                                    // value={precio}
                                     onChange={ e => setPrecio(Number(e.target.value))}
                                 />
                             </div>
@@ -76,6 +84,9 @@ const NuevoProducto = () => {
                             >Agregar</button>
 
                         </form>
+
+                        { cargando ? <p>Cargando...</p> : null }
+                        { error ? <p className="alert alert-danger p2 mt-4 text-center">Hubo un error</p> : null }
 
                     </div>
                 </div>
