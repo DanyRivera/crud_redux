@@ -1,13 +1,23 @@
 {
   "productos": [
     {
-      "nombre": "Jugo de Naranja",
-      "precio": "300",
+      "id": 1,
+      "nombre": "Lapiz",
+      "precio": "15"
+    },
+    {
+      "nombre": "Jugo de MAngo",
+      "precio": "55",
       "id": 3
     },
     {
-      "nombre": "Jugo de Fresa",
-      "precio": "200",
+      "nombre": "Rib Eye ",
+      "precio": "150",
+      "id": 4
+    },
+    {
+      "nombre": "Jugo de manzana",
+      "precio": "45",
       "id": 5
     }
   ]

@@ -17,6 +17,7 @@ const Productos = () => {
         }
         cargarProductos();
 
+        //eslint-disable-next-line
     }, [])
 
     //Obtener el state
